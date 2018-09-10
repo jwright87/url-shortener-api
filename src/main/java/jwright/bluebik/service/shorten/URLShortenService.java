@@ -1,9 +1,7 @@
 package jwright.bluebik.service.shorten;
 
-public class URLShortenService {
+public interface URLShortenService {
 
+     String shortenURL(String url);
 
-    public String shortenURL(String url) {
-        return null;
-    }
 }

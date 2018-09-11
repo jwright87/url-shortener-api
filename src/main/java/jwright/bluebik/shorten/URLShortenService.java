@@ -1,4 +1,4 @@
-package jwright.bluebik.service.shorten;
+package jwright.bluebik.shorten;
 
 public interface URLShortenService {
 

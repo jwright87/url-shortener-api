@@ -1,6 +1,5 @@
-package jwright.bluebik.controller;
+package jwright.bluebik.redirect;
 
-import jwright.bluebik.repository.URLDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -14,18 +13,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class URLRedirectController {
 
     private static final Logger logger = LoggerFactory.getLogger(URLRedirectController.class);
-    private URLDAO urlDAO;
+    private URLRedirectService redirectService;
 
-    public URLRedirectController(URLDAO urlDAO) {
-        this.urlDAO = urlDAO;
+    public URLRedirectController(URLRedirectService redirectService) {
+        this.redirectService = redirectService;
     }
 
     @RequestMapping("/{shortURL}")
     public ResponseEntity<?> redirectURL(@PathVariable(value = "shortURL") String shortURL) {
         logger.debug("Redirecting Short URL: {}", shortURL);
-        String url = urlDAO.get(shortURL);
-        logger.debug("Redirecting to full url: {}", url);
-        return ResponseEntity.status(HttpStatus.SEE_OTHER).header(HttpHeaders.LOCATION, "http://" + url).build();
+        String fullUrl = redirectService.getRedirectURL(shortURL);
+        logger.debug("Redirecting to full url: {}", fullUrl);
+        return ResponseEntity.status(HttpStatus.SEE_OTHER).header(HttpHeaders.LOCATION, fullUrl).build();
     }
 
 }

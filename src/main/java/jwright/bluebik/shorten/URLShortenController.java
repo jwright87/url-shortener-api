@@ -1,7 +1,6 @@
-package jwright.bluebik.controller;
+package jwright.bluebik.shorten;
 
 import jwright.bluebik.model.URLResponse;
-import jwright.bluebik.service.shorten.URLShortenService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;

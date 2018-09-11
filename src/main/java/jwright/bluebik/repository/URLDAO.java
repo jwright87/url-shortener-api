@@ -1,20 +1,8 @@
 package jwright.bluebik.repository;
 
-import org.springframework.stereotype.Repository;
+public interface URLDAO {
 
-import java.util.HashMap;
-import java.util.Map;
+    void save(String shortURL, String url);
 
-@Repository
-public class URLDAO {
-
-    private Map<String, String> map = new HashMap<>();
-
-    public void save(String shortURL, String url) {
-        map.put(shortURL, url);
-    }
-
-    public String get(String shortUrl) {
-        return map.get(shortUrl);
-    }
+    String get(String shortUrl);
 }

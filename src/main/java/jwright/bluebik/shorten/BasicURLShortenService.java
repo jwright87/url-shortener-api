@@ -1,7 +1,7 @@
-package jwright.bluebik.service.shorten;
+package jwright.bluebik.shorten;
 
 import com.google.common.hash.Hashing;
-import jwright.bluebik.repository.URLDAO;
+import jwright.bluebik.repository.HashMapURLDAO;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Random;
 @Service
 public class BasicURLShortenService implements URLShortenService {
 
-    private URLDAO urlDAO;
+    private HashMapURLDAO urlDAO;
     private Random random;
     private final char[] ALL_VALID_CHARS = createAllValidCharsArray();
 
@@ -24,7 +24,7 @@ public class BasicURLShortenService implements URLShortenService {
         return allValidChars;
     }
 
-    public BasicURLShortenService(URLDAO urlDAO) {
+    public BasicURLShortenService(HashMapURLDAO urlDAO) {
         this.random = new Random();
         this.urlDAO=urlDAO;
     }

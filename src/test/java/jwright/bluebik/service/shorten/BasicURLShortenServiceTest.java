@@ -1,5 +1,6 @@
 package jwright.bluebik.service.shorten;
 
+import jwright.bluebik.shorten.BasicURLShortenService;
 import org.junit.Test;
 
 import java.util.Random;
